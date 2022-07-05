@@ -1,0 +1,67 @@
+<div class="dashboard">
+  <app-toolbar></app-toolbar>
+  <div class="dashboard-content">
+    <div class="container container-tight">
+      <div class="title-wrapper">
+        <button routerLink="/dashboard" mat-mini-fab color="warn">
+          <mat-icon>home</mat-icon>
+        </button>
+        <h1>Dodawanie ankiety</h1>
+      </div>
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <mat-form-field class="form-field" appearance="fill">
+          <mat-label>Tytuł</mat-label>
+          <input matInput formControlName="title" />
+          <mat-error *ngIf="form.controls.title.hasError('required')">
+            Tytuł jest <strong>wymagany</strong>
+          </mat-error>
+        </mat-form-field>
+        <div formGroupName="questions">
+          <div class="add-question">
+            <button
+              type="button"
+              (click)="addQuestion()"
+              mat-icon-button
+              color="warn"
+            >
+              <mat-icon>add</mat-icon>
+            </button>
+          </div>
+
+          <div *ngFor="let question of questions.controls; let i = index">
+            <div [formGroupName]="i">
+              <div class="question-item">
+                <mat-form-field class="form-field" appearance="fill">
+                  <mat-label>Treść pytania</mat-label>
+                  <input matInput formControlName="content" />
+
+                  <mat-error *ngIf="question.hasError('required')">
+                    Treść pytania jest <strong>wymagana</strong>
+                  </mat-error>
+                </mat-form-field>
+                <button
+                  type="button"
+                  (click)="removeQuestion(i)"
+                  mat-icon-button
+                  color="warn"
+                >
+                  <mat-icon>delete</mat-icon>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="submit">
+          <button
+            type="submit"
+            [disabled]="form.invalid"
+            mat-raised-button
+            color="warn"
+          >
+            Zatwierdź
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

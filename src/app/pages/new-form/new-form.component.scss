@@ -1,0 +1,54 @@
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  position: relative;
+}
+
+.dashboard-content {
+  flex-grow: 1;
+  padding: 100px 0;
+}
+
+.form-field {
+  width: 100%;
+}
+
+.title-wrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.title-wrapper h1 {
+  margin: 0;
+  padding-left: 15px;
+}
+
+.question-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.question-item button {
+  transform: translateY(-10px);
+}
+
+.add-question {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 18px;
+}
+
+.add-question button .mat-icon {
+  font-size: 30px;
+  height: 30px;
+  width: 30px;
+}
+
+.submit {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+}

@@ -1,0 +1,13 @@
+.card-actions {
+  margin-top: 15px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.card-actions button {
+  margin-right: 5px;
+}
+
+.card-actions button:nth-last-of-type(1) {
+  margin-right: 0px;
+}

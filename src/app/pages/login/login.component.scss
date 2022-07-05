@@ -1,0 +1,25 @@
+.login {
+  height: 100vh;
+  background-color: firebrick;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 500px;
+}
+.card-form {
+  max-width: 400px;
+  margin: auto;
+}
+
+.form-field {
+  width: 100%;
+}
+
+.form-submit {
+  display: flex;
+  justify-content: space-between;
+}

@@ -1,0 +1,62 @@
+<div class="login">
+  <mat-card class="login-card">
+    <h1 class="card-title">Zaloguj się</h1>
+
+    <form class="card-form" [formGroup]="formLogin" (ngSubmit)="onSubmit()">
+      <mat-form-field class="form-field" appearance="fill">
+        <mat-label>Email</mat-label>
+        <input
+          type="email"
+          matInput
+          formControlName="email"
+          placeholder="Np. pat@example.com"
+        />
+        <mat-error
+          *ngIf="
+            formLogin.controls.email.hasError('email') &&
+            !formLogin.controls.email.hasError('required')
+          "
+        >
+          Proszę wprowadzić poprawny adres email
+        </mat-error>
+        <mat-error *ngIf="formLogin.controls.email.hasError('required')">
+          Email jest <strong>wymagany</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="form-field" appearance="fill">
+        <mat-label>Podaj swoje hasło</mat-label>
+        <input
+          matInput
+          formControlName="password"
+          [type]="hide ? 'password' : 'text'"
+        />
+        <button
+          mat-icon-button
+          matSuffix
+          type="button"
+          (click)="hide = !hide"
+          [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hide"
+        >
+          <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+        </button>
+        <mat-error *ngIf="formLogin.controls.password.hasError('required')">
+          Hasło jest <strong>wymagane</strong>
+        </mat-error>
+      </mat-form-field>
+      <div class="form-submit">
+        <button routerLink="/" mat-icon-button type="button">
+          <mat-icon>undo</mat-icon>
+        </button>
+        <button
+          mat-stroked-button
+          type="submit"
+          [disabled]="this.formLogin.invalid"
+        >
+          Zaloguj się
+        </button>
+      </div>
+    </form>
+  </mat-card>
+</div>
